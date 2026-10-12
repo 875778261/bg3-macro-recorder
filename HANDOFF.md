@@ -338,6 +338,18 @@ F6 无冲突，改键前先在游戏里试。
 
 用户明确要求：**单机 / 离线使用，不要在联机房或带反作弊的环境运行。**
 
+### ⚠️ 推送到 GitHub 的前提（2026-10-13 实测）
+
+- 本机 `~/.ssh/id_ed25519`（对应账号 `875778261`，见 `~/.ssh/config`）**带口令**，
+  且系统里**没有常驻 ssh-agent**。
+- 因此 **agent / 脚本等非交互环境推不上去**，报错就是
+  `git@github.com: Permission denied (publickey)`。
+  必须由**能交互输入口令的终端**执行 `git push`。
+- 判断一把私钥是否带口令：`ssh-keygen -y -f ~/.ssh/id_ed25519`
+  —— 若提示 `Enter passphrase`，就是加密私钥，非交互环境不可用。
+- 另注：Windows 自带的 `C:\Windows\System32\OpenSSH\ssh.exe` **读不懂 msys 风格的
+  `~/.ssh/config`**（里面的 `/c/Users/...` 路径它当成字面量），不要拿它当备选通道。
+
 ---
 
 ## 14. 2026-10-12 修复记录（两个 bug + 热键改版）
