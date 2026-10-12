@@ -1,0 +1,43 @@
+# ============================================================
+# 入库边界见 docs/adr/0003-version-control-boundary.md
+# 原则：仓库记录「作者本机可运行工程的状态」，
+#       只排除「可由工具重建」或「与本机强绑定且无意义」的东西。
+# ============================================================
+
+# ---- 虚拟环境（可由依赖重建；体积 200MB+）----
+.venv/
+venv/
+env/
+
+# ---- Python 缓存与构建产物 ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- 本机快捷方式（桌面产物，不属于工程）----
+*.lnk
+*.url
+
+# ---- 操作系统杂物 ----
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# ---- 编辑器 / IDE ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- 运行期临时文件 ----
+*.log
+*.tmp

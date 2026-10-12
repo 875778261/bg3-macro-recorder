@@ -1,0 +1,49 @@
+{
+  "window_title_keywords": [
+    "Baldur's Gate 3"
+  ],
+  "require_foreground": true,
+  "template_threshold": 0.82,
+  "match_scales": [
+    1.0
+  ],
+  "hint_radius_px": 220,
+  "roi_pad_px": 320,
+  "balance_btn_template": "balance_btn.png",
+  "haggle_btn_template": "haggle_btn.png",
+  "price_roi": [
+    1718,
+    367,
+    403,
+    247
+  ],
+  "balance_wait_ms": 5000,
+  "balance_poll_ms": 80,
+  "price_filled_ratio": 0.0365,
+  "verify_interval_ms": 60,
+  "max_verify_wait_ms": 1500,
+  "max_balance_retries": 6,
+  "retry_backoff_ms": 250,
+  "handle_dialog": true,
+  "dialog_wait_ms": 800,
+  "dialog_poll_ms": 40,
+  "min_click_gap_ms": 400,
+  "click_jitter_px": 3,
+  "skip_move_below_px": 0,
+  "pre_click_delay_ms": [
+    20,
+    45
+  ],
+  "move_duration_ms": [
+    40,
+    90
+  ],
+  "round_delay_ms": [
+    80,
+    160
+  ],
+  "settle_poll_ms": 40,
+  "max_rounds": 0,
+  "note": "【根因修正】之前用 B-R 蓝红差判按钮可用性，方向搞反了：「平衡报价」是可点的金色按钮(B-R≈-26为负)，被判成禁用 -> 脚本一直等待、毫无反应。现改用「高饱和金色像素占比」：可点态≈90%，禁用态≈0%，阈值0.25。max_click_gap=400ms。",
+  "enabled_gold_ratio": 0.25
+}

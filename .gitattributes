@@ -1,0 +1,24 @@
+# ============================================================
+# 编码 / 行尾保护
+# 见 docs/adr/0003-version-control-boundary.md
+# ============================================================
+
+# 交易助手.bat 是 GBK 编码（非 UTF-8）。
+# 声明为 -text，禁止 git 做行尾/编码归一化，按字节原样存取，
+# 否则 autocrlf 会改写行尾，GBK 中文提示可能显示为乱码。
+*.bat  -text
+
+# 二进制资源按原样存取
+*.ico  binary
+*.png  binary
+*.exe  binary
+*.dll  binary
+*.pyd  binary
+
+# 文本文件统一 LF 入库（Windows 检出时由 autocrlf 还原）
+*.py   text
+*.md   text
+*.json text
+
+.gitignore      text
+.gitattributes  text
